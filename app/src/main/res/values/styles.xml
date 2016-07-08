@@ -1,0 +1,52 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme.App</item>
+        <item name="actionMenuTextAppearance">@style/actionMenuTextStyle</item>
+        <item name="android:actionMenuTextAppearance">@style/actionMenuTextStyle</item>
+    </style>
+
+    <!--基础主题-->
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme.App</item>
+        <item name="actionMenuTextAppearance">@style/actionMenuTextStyle</item>
+        <item name="android:actionMenuTextAppearance">@style/actionMenuTextStyle</item>
+    </style>
+
+    <!--白色(设置相关页面)-->
+    <style name="AppTheme.White">
+        <item name="colorPrimaryDark">@android:color/black</item>
+    </style>
+
+    <!--启动页-->
+    <style name="AppTheme.Splash">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.TranslucentStatusBar"/>
+
+    <style name="AppTheme.ImgList"/>
+
+    <style name="AppTheme.AppBarOverlay.White" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="AppTheme.PopupOverlay.White" parent="ThemeOverlay.AppCompat.Dark"/>
+
+    <!--对话框-->
+    <style name="AlertDialogTheme.App" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--menu文字属性-->
+    <style name="actionMenuTextStyle">
+        <item name="android:textSize">18sp</item>
+    </style>
+</resources>
