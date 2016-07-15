@@ -3,7 +3,7 @@ package com.centaline.turman.findhouse.base;
 import android.app.Application;
 
 import com.baidu.mapapi.SDKInitializer;
-import com.centaline.turman.findhouse.utils.LocationUtil;
+import com.centaline.turman.findhouse.utils.map.LocationUtil;
 import com.centaline.turman.findhouse.utils.LogUtil;
 import com.centaline.turman.findhouse.utils.SharedPreferencesUtil;
 

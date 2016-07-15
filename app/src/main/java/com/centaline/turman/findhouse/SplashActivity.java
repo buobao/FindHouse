@@ -1,11 +1,9 @@
 package com.centaline.turman.findhouse;
 import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.widget.TextView;
 
 import com.centaline.turman.findhouse.base.BaseActivity;
-import com.centaline.turman.findhouse.utils.LocationUtil;
-import com.centaline.turman.findhouse.utils.LogUtil;
+import com.centaline.turman.findhouse.utils.map.LocationUtil;
 
 import butterknife.Bind;
 

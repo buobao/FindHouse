@@ -1,7 +1,6 @@
-package com.centaline.turman.findhouse.utils;
+package com.centaline.turman.findhouse.utils.map;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -9,6 +8,7 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
 import com.centaline.turman.findhouse.AppContents;
+import com.centaline.turman.findhouse.utils.SharedPreferencesUtil;
 import com.orhanobut.logger.Logger;
 
 import java.util.List;
@@ -115,7 +115,7 @@ public class LocationUtil {
             case 602: return "key mcode不匹配";
         }
 
-        return null;
+        return "未知错误";
     }
 
     public static class MyLocationListener implements BDLocationListener {
