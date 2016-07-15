@@ -17,13 +17,18 @@ public class SharedPreferencesUtil {
     //缓存用户是否登录状态
     public static final String IS_LOGIN = "isLogin";
 
-
-    private static SharedPreferences mSharedPreferences;
+    private static SharedPreferences mSharedPreferences = null;
     private static SharedPreferences.Editor mSharedEditor;
 
+    public static boolean isInited(){
+        return mSharedPreferences != null;
+    }
+
     public static void init(Context context){
-        mSharedPreferences = context.getSharedPreferences(AppContents.SP_NAME, Activity.MODE_PRIVATE);
-        mSharedEditor = mSharedPreferences.edit();
+        if (mSharedPreferences == null) {
+            mSharedPreferences = context.getSharedPreferences(AppContents.SP_NAME, Activity.MODE_PRIVATE);
+            mSharedEditor = mSharedPreferences.edit();
+        }
     }
 
     public static void saveString(String name, String value) {

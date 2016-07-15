@@ -1,7 +1,10 @@
 package com.centaline.turman.findhouse;
+import android.support.design.widget.Snackbar;
+import android.view.View;
 import android.widget.TextView;
 
 import com.centaline.turman.findhouse.base.BaseActivity;
+import com.centaline.turman.findhouse.utils.LocationUtil;
 import com.centaline.turman.findhouse.utils.LogUtil;
 
 import butterknife.Bind;
@@ -21,24 +24,11 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
-        LogUtil.d("Hello, %s","China");
-        LogUtil.i("Hello, %s","China");
-        LogUtil.json("{app:'name',result:['A','B','C']}");
-
-
-//        Observable.just("Hello")
-//                .compose(new Observable.Transformer<String, String>() {
-//                    @Override
-//                    public Observable<String> call(Observable<String> stringObservable) {
-//                        return stringObservable.observeOn(Schedulers.io()).subscribeOn(AndroidSchedulers.mainThread());
-//                    }
-//                }).subscribe(new Action1<String>() {
-//            @Override
-//            public void call(String s) {
-//                Log.d("Turman",s);
-//            }
-//        });
+        LocationUtil.start(LocationUtil.LOC_ONCE, true);
+        String locationMsg = LocationUtil.getResultMessage();
+        if (locationMsg == null) {
+            Snackbar.make(mParentView, "hhhh", Snackbar.LENGTH_SHORT).show();
+        }
     }
 }
 

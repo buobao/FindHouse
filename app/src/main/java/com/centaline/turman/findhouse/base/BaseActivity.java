@@ -3,6 +3,9 @@ package com.centaline.turman.findhouse.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+
+import com.centaline.turman.findhouse.AppApplication;
 
 import butterknife.ButterKnife;
 
@@ -10,6 +13,10 @@ import butterknife.ButterKnife;
  * Created by diaoqf on 2016/7/8.
  */
 public abstract class BaseActivity extends AppCompatActivity {
+
+    protected View mParentView;
+    protected AppApplication mApplication;
+
     /**
      * 设置activity layout
      */
@@ -29,7 +36,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         beforeCreate();
         super.onCreate(savedInstanceState);
-        setContentView(getLayout());
+        mParentView = getLayoutInflater().inflate(getLayout(),null);
+        setContentView(mParentView);
+        mApplication = (AppApplication) getApplication();
+
         //butter knife bind
         ButterKnife.bind(this);
         initView();
