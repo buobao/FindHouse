@@ -3,6 +3,7 @@
 
     <application
         android:allowBackup="true"
+        android:name=".AppApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/AppName"
         android:supportsRtl="true"

@@ -3,6 +3,7 @@ package com.centaline.turman.findhouse.base;
 import android.app.Application;
 import android.content.SharedPreferences;
 
+import com.centaline.turman.findhouse.utils.LogUtil;
 import com.centaline.turman.findhouse.utils.SharedPreferencesUtil;
 
 /**
@@ -19,5 +20,6 @@ public class BaseApplication extends Application {
 
     private void initUtils() {
         SharedPreferencesUtil.init(getApplicationContext());
+        LogUtil.init();
     }
 }
