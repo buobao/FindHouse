@@ -18,5 +18,13 @@ public class AppContents {
     public final static String LOCATION_CITY = "location_city";
     //当前定位城市码标识
     public final static String LOCATION_CITY_CODE = "location_city_code";
+    //融云token
+    public final static String RONG_CLOUD_TOKEN = "rong_cloud_token";
 
+
+    //app语言设置
+    public final static String LANGUAGE = "language";
+
+    //rxbus messages
+    public final static String LANGUAGE_MESSAGE = "language_message";
 }

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.centaline.turman.findhouse.AppApplication;
+import com.hwangjr.rxbus.RxBus;
 
 import butterknife.ButterKnife;
 
@@ -42,12 +43,19 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         //butter knife bind
         ButterKnife.bind(this);
+
+        //rxbus register
+        RxBus.get().register(this);
+
         initView();
     }
 
     @Override
     protected void onDestroy() {
+        //butterknife unbind
         ButterKnife.unbind(this);
+        //rxbus unregister
+        RxBus.get().unregister(this);
         super.onDestroy();
     }
 }

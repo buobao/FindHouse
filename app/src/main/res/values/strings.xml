@@ -1,3 +1,5 @@
 <resources>
     <string name="copy_right">\u00a92016 CENTANET.COM</string>
+
+    <string name="defined_name">这是自定义的名称</string>
 </resources>

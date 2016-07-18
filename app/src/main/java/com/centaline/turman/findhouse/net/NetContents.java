@@ -5,5 +5,6 @@ package com.centaline.turman.findhouse.net;
  */
 public class NetContents {
 
-    public static final String BASE_URL = "";
+    public static final String BASE_HOST = "";
+    public static final String RONG_CLOUD_HOST = "https://api.cn.ronghub.com";
 }

@@ -29,7 +29,7 @@
 
     <!--启动页-->
     <style name="AppTheme.Splash">
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme.TranslucentStatusBar"/>

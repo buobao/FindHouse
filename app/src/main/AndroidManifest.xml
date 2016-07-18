@@ -37,6 +37,9 @@
             android:process=":remote" >
         </service>
 
+        <!--rong cloud-->
+
+
         <!--app components-->
         <activity
             android:name=".SplashActivity"
@@ -47,6 +50,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".TalkActivity"/>
 
     </application>
 
