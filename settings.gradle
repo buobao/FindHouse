@@ -1,1 +1,1 @@
-include ':app', ':Rong_Cloud_Android_IMKit'
+include ':app', ':IMKit'

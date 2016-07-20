@@ -38,7 +38,9 @@
         </service>
 
         <!--rong cloud-->
-
+        <meta-data
+            android:name="RONG_CLOUD_APP_KEY"
+            android:value="${RONG_CLOUD_KEY}" />
 
         <!--app components-->
         <activity
@@ -51,7 +53,20 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TalkActivity"/>
+        <activity android:name=".TalkActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ConversationActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="com.centaline.turman.findhouse"
+                    android:pathPrefix="/conversation/"
+                    android:scheme="rong" />
+            </intent-filter>
+
+        </activity>
 
     </application>
 

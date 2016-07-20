@@ -12,6 +12,7 @@ import com.centaline.turman.findhouse.utils.LogUtil;
 import com.centaline.turman.findhouse.utils.SharedPreferencesUtil;
 
 import io.rong.imkit.RongIM;
+import io.rong.push.RongPushClient;
 
 /**
  * Created by diaoqf on 2016/7/8.
@@ -43,6 +44,8 @@ public class BaseApplication extends Application {
         if (BuildConfig.APPLICATION_ID.equals(getCurProcessName()) || "io.rong.push".equals(getCurProcessName())) {
             RongIM.init(this);
         }
+
+        RongPushClient.registerHWPush(this);
     }
 
     public String getCurProcessName() {

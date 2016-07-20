@@ -16,7 +16,7 @@ public class LogUtil {
     public static void init(){
         if (!isInited) {
             Logger.init(BuildConfig.LOG_TAG)
-                    .setMethodCount(3)
+                    .setMethodCount(1)
                     .setLogLevel(BuildConfig.DEBUG? LogLevel.FULL : LogLevel.NONE)
                     .setMethodOffset(3);
             isInited = true;
