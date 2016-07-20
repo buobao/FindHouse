@@ -12,6 +12,7 @@ import com.centaline.turman.findhouse.utils.LogUtil;
 import com.centaline.turman.findhouse.utils.SharedPreferencesUtil;
 
 import io.rong.imkit.RongIM;
+import io.rong.imlib.ipc.RongExceptionHandler;
 import io.rong.push.RongPushClient;
 
 /**
@@ -42,7 +43,8 @@ public class BaseApplication extends Application {
         LanguageUtil.changeAppLanguage(getResources(),LanguageUtil.CHINESE);
         //融云
         if (BuildConfig.APPLICATION_ID.equals(getCurProcessName()) || "io.rong.push".equals(getCurProcessName())) {
-            RongIM.init(this);
+            RongIM.init(this,BuildConfig.RONG_CLOUD_KEY);
+            Thread.setDefaultUncaughtExceptionHandler(new RongExceptionHandler(this));
         }
 
         RongPushClient.registerHWPush(this);

@@ -38,15 +38,15 @@
         </service>
 
         <!--rong cloud-->
-        <meta-data
-            android:name="RONG_CLOUD_APP_KEY"
-            android:value="${RONG_CLOUD_KEY}" />
+        <!--<meta-data-->
+            <!--android:name="RONG_CLOUD_APP_KEY"-->
+            <!--android:value="${RONG_CLOUD_KEY}" />-->
 
         <!--app components-->
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Splash">
+            android:theme="@style/MainTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

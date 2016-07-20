@@ -337,7 +337,7 @@ public class TalkActivity extends BaseActivity {
                  * title - 聊天的标题，如果传入空值，则默认显示与之聊天的用户名称。
                  */
                 if (RongIM.getInstance() != null) {
-                    RongIM.getInstance().startPrivateChat(TalkActivity.this, "78h0970712037128", "First Talk");
+                    RongIM.getInstance().startPrivateChat(TalkActivity.this, "78h0970712037126", "First Talk");
                 }
             }
         });
