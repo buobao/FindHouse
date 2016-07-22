@@ -1,30 +1,23 @@
 package com.centaline.turman.findhouse;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.graphics.PointF;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import android.os.Handler;
-import android.renderscript.Sampler;
+
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.Transformation;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.centaline.turman.findhouse.base.BaseActivity;
+import com.centaline.turman.findhouse.widgets.filtermenu.FilterMenu;
+import com.centaline.turman.findhouse.widgets.filtermenu.FilterMenuLayout;
 import com.centaline.turman.findhouse.widgets.loopviewpager.LayoutAdapter;
 import com.centaline.turman.findhouse.widgets.loopviewpager.LoopRecyclerViewPager;
-import com.orhanobut.logger.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,6 +33,25 @@ public class MainActivity extends BaseActivity {
     protected ImageView top_image;
     @Bind(R.id.viewpager)
     protected LoopRecyclerViewPager viewpager;
+    @Bind(R.id.filter_menu2)
+    protected FilterMenuLayout filter_menu2;
+
+    FilterMenu.OnMenuChangeListener listener = new FilterMenu.OnMenuChangeListener() {
+        @Override
+        public void onMenuItemClick(View view, int position) {
+            Toast.makeText(MainActivity.this, "Touched position " + position, Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onMenuCollapse() {
+
+        }
+
+        @Override
+        public void onMenuExpand() {
+
+        }
+    };
 
     private  Bitmap bitmap;
 
@@ -58,7 +70,16 @@ public class MainActivity extends BaseActivity {
             e.printStackTrace();
         }
 
+        Animation scale = new ScaleAnimation(1.0f, 1.1f, 1.0f, 1.1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        scale.setDuration(10000);
+        scale.setRepeatMode(Animation.REVERSE);
+        scale.setRepeatCount(Animation.INFINITE);
+        AnimationSet set = new AnimationSet(true);
+        set.setFillEnabled(true);
+        set.addAnimation(scale);
+        top_image.startAnimation(set);
 
+        //view pager
         LinearLayoutManager layout = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,
                 false);
         viewpager.setTriggerOffset(0.15f);
@@ -68,14 +89,15 @@ public class MainActivity extends BaseActivity {
         viewpager.setHasFixedSize(true);
         viewpager.setLongClickable(true);
 
-        viewpager.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        viewpager.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
+            public void onScrollStateChanged(RecyclerView recyclerView, int scrollState) {
+
             }
 
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(RecyclerView recyclerView, int i, int i2) {
+//                mPositionText.setText("First: " + mRecyclerViewPager.getFirstVisiblePosition());
                 int childCount = viewpager.getChildCount();
                 int width = viewpager.getChildAt(0).getWidth();
                 int padding = (viewpager.getWidth() - width) / 2;
@@ -123,7 +145,20 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+
+
+        new FilterMenu.Builder(this)
+                .addItem(android.R.drawable.ic_menu_agenda)
+                .addItem(android.R.drawable.ic_menu_agenda)
+                .addItem(android.R.drawable.ic_menu_agenda)
+                .addItem(android.R.drawable.ic_menu_agenda)
+                .attach(filter_menu2)
+                .withListener(listener)
+                .build();
+
+
     }
+
 }
 
 
